@@ -123,3 +123,32 @@ JSON edit.
    preview pay for themselves.
 6. If volume grows past ~3 shorts/week, move rendering to a tiny queue
    (one worker, same code, ffmpeg unchanged) — it is already CPU-only and deterministic.
+
+---
+
+## 6. Delivery
+
+| what | where |
+|---|---|
+| Browsable gallery (Tailscale, nginx on blackbox) | http://100.91.93.22/poker-motion-shorts/ |
+| Rendered MP4s | `/volume1/web/poker-motion-shorts/out/` on blackbox |
+| Source archive (zip) | `/volume1/web/poker-motion-shorts/source/poker-motion-shorts-src.zip` |
+| Repo | https://github.com/phillyc/poker-motion-shorts (public) |
+
+Re-upload after a change:
+
+```bash
+tar czf - out/*.mp4 docs/*.md README.md web/index.html \
+  | ssh -p 4488 phil@100.91.93.22 'tar xzf - -C /volume1/web/poker-motion-shorts'
+```
+
+NAS `scp` fails (Synology ships no sftp subsystem for this account) — stream a tar
+over ssh instead.
+
+### Verified on delivery (this run)
+
+- All three files probe as h264 High / 1080×1920 / 30 fps / AAC 48 kHz stereo, faststart.
+- Durations: 45.00 s, 13.00 s, 10.90 s. Sizes 40.6 / 11.6 / 9.5 MB.
+- Loudness measured on the encoded files: −14.1 (hero), −13.9 (pot odds), −14.7 LUFS (limp trap); true peak ≤ −0.9 dBTP.
+- md5 of NAS copies match local renders (hero `955da127…`, pot odds `cba9b38e…`, limp trap `6a30c1a3…`).
+- Frame checks: hero end card ("TIGHT UP FRONT. WIDE ON THE BUTTON.") and both new shorts' beat frames read clean — no clipping, no safe-band violations.
