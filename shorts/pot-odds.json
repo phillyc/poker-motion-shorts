@@ -1,0 +1,356 @@
+{
+  "id": "pot-odds",
+  "title": "Pot Odds in 13 Seconds",
+  "fps": 30,
+  "duration": 12.9,
+  "palette": {
+    "bg": "#05100C",
+    "bg2": "#12402F",
+    "ink": "#F4EFE6",
+    "dim": "#94A79F",
+    "accent": "#E8B44A",
+    "good": "#35E1C4",
+    "bad": "#FF4D3D"
+  },
+  "vo": [
+    {
+      "t": 0.25,
+      "text": "Fifty to call, into a hundred and fifty."
+    },
+    {
+      "t": 1.35,
+      "text": "That's three to one."
+    },
+    {
+      "t": 3.5,
+      "text": "Three to one means you need twenty five percent."
+    },
+    {
+      "t": 6.5,
+      "text": "You have a flush draw. Nine outs, about thirty five percent by the river."
+    },
+    {
+      "t": 9.5,
+      "text": "Now it's four hundred to call, into two hundred."
+    },
+    {
+      "t": 10.5,
+      "text": "That's forty percent. You have thirty five."
+    },
+    {
+      "t": 11.5,
+      "text": "Fold."
+    }
+  ],
+  "elements": [
+    {
+      "id": "p1k",
+      "kind": "kicker",
+      "text": "LIVE $1/$2 · POT ODDS",
+      "t0": 0.04,
+      "t1": 3.0,
+      "y": 468
+    },
+    {
+      "id": "p1a",
+      "kind": "text",
+      "text": "$50",
+      "t0": 0.12,
+      "t1": 3.0,
+      "y": 690,
+      "size": 250,
+      "preset": "slam",
+      "exit": "lift"
+    },
+    {
+      "id": "p1b",
+      "kind": "text",
+      "text": "TO CALL",
+      "t0": 0.4,
+      "t1": 3.0,
+      "y": 880,
+      "size": 86,
+      "tracking": 0.1,
+      "preset": "rise",
+      "color": "ink"
+    },
+    {
+      "id": "p1c",
+      "kind": "text",
+      "text": "$150 in the pot",
+      "t0": 0.7,
+      "t1": 3.0,
+      "y": 1000,
+      "size": 58,
+      "font": "ui",
+      "weight": 500,
+      "preset": "rise",
+      "color": "dim",
+      "shadow": false
+    },
+    {
+      "id": "p1d",
+      "kind": "text",
+      "text": "3 : 1",
+      "t0": 1.1,
+      "t1": 3.0,
+      "y": 1160,
+      "size": 150,
+      "preset": "pop",
+      "color": "accent"
+    },
+    {
+      "id": "p2k",
+      "kind": "kicker",
+      "text": "THE PRICE YOU NEED",
+      "t0": 3.1,
+      "t1": 6.2,
+      "y": 444
+    },
+    {
+      "id": "p2a",
+      "kind": "counter",
+      "to": 25,
+      "suffix": "%",
+      "t0": 3.24,
+      "t1": 6.2,
+      "y": 700,
+      "size": 300,
+      "preset": "slam",
+      "color": "accent",
+      "count_dur": 0.85,
+      "exit": "lift"
+    },
+    {
+      "id": "p2b",
+      "kind": "text",
+      "text": "equity to call",
+      "t0": 3.85,
+      "t1": 6.2,
+      "y": 900,
+      "size": 62,
+      "font": "ui",
+      "weight": 500,
+      "preset": "rise",
+      "color": "ink",
+      "shadow": false
+    },
+    {
+      "id": "p2c",
+      "kind": "bar",
+      "t0": 4.05,
+      "t1": 6.2,
+      "y": 1052,
+      "width": 780,
+      "height": 20,
+      "pct": 0.25,
+      "in": 1.1,
+      "label": "25%",
+      "label_size": 40,
+      "color": "accent",
+      "ticks": [
+        [
+          0.0,
+          "0%"
+        ],
+        [
+          0.5,
+          "50%"
+        ],
+        [
+          1.0,
+          "100%"
+        ]
+      ]
+    },
+    {
+      "id": "p3k",
+      "kind": "kicker",
+      "text": "YOUR HAND",
+      "t0": 6.28,
+      "t1": 9.4,
+      "y": 424
+    },
+    {
+      "id": "p3c1",
+      "kind": "card",
+      "rank": "A",
+      "suit": "spades",
+      "t0": 6.36,
+      "t1": 9.4,
+      "y": 646,
+      "x": -112,
+      "cw": 196,
+      "preset": "pop",
+      "exit": "sink"
+    },
+    {
+      "id": "p3c2",
+      "kind": "card",
+      "rank": "J",
+      "suit": "spades",
+      "t0": 6.44,
+      "t1": 9.4,
+      "y": 646,
+      "x": 112,
+      "cw": 196,
+      "preset": "pop",
+      "exit": "sink"
+    },
+    {
+      "id": "p3a",
+      "kind": "text",
+      "text": "flush draw · 9 outs",
+      "t0": 6.74,
+      "t1": 9.4,
+      "y": 862,
+      "size": 52,
+      "font": "ui",
+      "weight": 600,
+      "tracking": 0.02,
+      "preset": "rise",
+      "color": "ink",
+      "shadow": false
+    },
+    {
+      "id": "p3b",
+      "kind": "text",
+      "runs": [
+        {
+          "text": "≈ ",
+          "color": "dim"
+        },
+        {
+          "text": "35",
+          "color": "good"
+        },
+        {
+          "text": "%",
+          "color": "good",
+          "scale": 0.55
+        }
+      ],
+      "t0": 7.05,
+      "t1": 9.4,
+      "y": 1030,
+      "size": 210,
+      "preset": "slam",
+      "exit": "lift"
+    },
+    {
+      "id": "p3c",
+      "kind": "text",
+      "text": "by the river",
+      "t0": 7.55,
+      "t1": 9.4,
+      "y": 1180,
+      "size": 48,
+      "font": "ui",
+      "weight": 500,
+      "preset": "rise",
+      "color": "dim",
+      "shadow": false
+    },
+    {
+      "id": "p4k",
+      "kind": "kicker",
+      "text": "SAME SPOT · BIGGER PRICE",
+      "t0": 9.46,
+      "t1": 12.9,
+      "y": 420
+    },
+    {
+      "id": "p4a",
+      "kind": "text",
+      "text": "$400 to call",
+      "t0": 9.54,
+      "t1": 12.9,
+      "y": 560,
+      "size": 108,
+      "preset": "slam",
+      "exit": "lift"
+    },
+    {
+      "id": "p4b",
+      "kind": "text",
+      "text": "into a $200 pot",
+      "t0": 9.86,
+      "t1": 12.9,
+      "y": 700,
+      "size": 56,
+      "font": "ui",
+      "weight": 500,
+      "preset": "rise",
+      "color": "dim",
+      "shadow": false
+    },
+    {
+      "id": "p4c",
+      "kind": "counter",
+      "to": 40,
+      "suffix": "%",
+      "t0": 10.08,
+      "t1": 12.9,
+      "y": 850,
+      "size": 170,
+      "preset": "slam",
+      "color": "bad",
+      "count_dur": 0.7,
+      "exit": "lift"
+    },
+    {
+      "id": "p4d",
+      "kind": "text",
+      "t0": 10.66,
+      "t1": 12.9,
+      "y": 1010,
+      "size": 78,
+      "preset": "pop",
+      "color": "bad",
+      "runs": [
+        {
+          "text": "35%",
+          "color": "bad",
+          "gap": 18
+        },
+        {
+          "text": "<",
+          "color": "dim",
+          "gap": 18
+        },
+        {
+          "text": "40%",
+          "color": "bad"
+        }
+      ]
+    },
+    {
+      "id": "p4e",
+      "kind": "text",
+      "text": "FOLD",
+      "t0": 11.3,
+      "t1": 12.9,
+      "y": 1170,
+      "size": 170,
+      "preset": "slam",
+      "color": "bad",
+      "exit": "none"
+    },
+    {
+      "id": "p4f",
+      "kind": "text",
+      "text": "NOFACEPOKER · $1/$2",
+      "t0": 11.95,
+      "t1": 12.9,
+      "y": 1300,
+      "size": 34,
+      "font": "ui",
+      "weight": 700,
+      "tracking": 0.14,
+      "preset": "rise",
+      "color": "dim",
+      "shadow": false
+    }
+  ],
+  "y_offset": 90
+}

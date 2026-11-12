@@ -1,0 +1,260 @@
+{
+  "id": "limp-trap",
+  "title": "The Limp Trap",
+  "fps": 30,
+  "duration": 10.8,
+  "palette": {
+    "bg": "#0B0A0C",
+    "bg2": "#2C1216",
+    "ink": "#F4EFE6",
+    "dim": "#A08E8E",
+    "accent": "#E8B44A",
+    "good": "#35E1C4",
+    "bad": "#FF4D3D"
+  },
+  "vo": [
+    {
+      "t": 0.2,
+      "text": "Limping feels safe."
+    },
+    {
+      "t": 2.7,
+      "text": "Everyone calls. Eight dollar pot, seven players."
+    },
+    {
+      "t": 5.5,
+      "text": "You flop top pair, and you have no idea where you are."
+    },
+    {
+      "t": 8.3,
+      "text": "Raise or fold. Limping is a leak."
+    }
+  ],
+  "elements": [
+    {
+      "id": "l1k",
+      "kind": "kicker",
+      "text": "LIVE $1/$2 · THE LEAK",
+      "t0": 0.04,
+      "t1": 2.6,
+      "y": 456,
+      "color": "accent"
+    },
+    {
+      "id": "l1a",
+      "kind": "text",
+      "text": "LIMPING",
+      "t0": 0.12,
+      "t1": 2.6,
+      "y": 700,
+      "size": 226,
+      "tracking": 0.02,
+      "preset": "slam",
+      "exit": "lift"
+    },
+    {
+      "id": "l1b",
+      "kind": "text",
+      "runs": [
+        {
+          "text": "feels",
+          "color": "dim",
+          "gap": 16
+        },
+        {
+          "text": "safe.",
+          "color": "ink"
+        }
+      ],
+      "t0": 0.62,
+      "t1": 2.6,
+      "y": 900,
+      "size": 96,
+      "preset": "rise",
+      "shadow": false
+    },
+    {
+      "id": "l1r",
+      "kind": "rule",
+      "t0": 1.05,
+      "t1": 2.6,
+      "y": 990,
+      "width": 420,
+      "color": "accent",
+      "in": 0.5
+    },
+    {
+      "id": "l2a",
+      "kind": "text",
+      "text": "EVERYONE CALLS.",
+      "t0": 2.66,
+      "t1": 5.4,
+      "y": 596,
+      "size": 84,
+      "tracking": 0.01,
+      "preset": "slam"
+    },
+    {
+      "id": "l2b",
+      "kind": "text",
+      "runs": [
+        {
+          "text": "$",
+          "color": "accent",
+          "scale": 0.55,
+          "gap": 0
+        },
+        {
+          "text": "8",
+          "color": "accent",
+          "gap": 8
+        },
+        {
+          "text": "POT",
+          "color": "accent",
+          "scale": 0.55
+        }
+      ],
+      "t0": 2.96,
+      "t1": 5.4,
+      "y": 792,
+      "size": 210,
+      "preset": "pop",
+      "exit": "lift"
+    },
+    {
+      "id": "l2c",
+      "kind": "text",
+      "text": "SEVEN PLAYERS",
+      "t0": 3.34,
+      "t1": 5.4,
+      "y": 980,
+      "size": 64,
+      "tracking": 0.1,
+      "preset": "rise",
+      "color": "ink",
+      "shadow": false
+    },
+    {
+      "id": "l2d",
+      "kind": "text",
+      "text": "and nobody has a read",
+      "t0": 3.66,
+      "t1": 5.4,
+      "y": 1082,
+      "size": 44,
+      "font": "ui",
+      "weight": 500,
+      "preset": "rise",
+      "color": "dim",
+      "shadow": false
+    },
+    {
+      "id": "l3a",
+      "kind": "text",
+      "text": "YOU FLOP",
+      "t0": 5.46,
+      "t1": 8.2,
+      "y": 604,
+      "size": 132,
+      "preset": "slam",
+      "color": "ink"
+    },
+    {
+      "id": "l3b",
+      "kind": "text",
+      "text": "TOP PAIR.",
+      "t0": 5.72,
+      "t1": 8.2,
+      "y": 754,
+      "size": 132,
+      "preset": "slam",
+      "color": "accent"
+    },
+    {
+      "id": "l3c",
+      "kind": "text",
+      "text": "…and no idea",
+      "t0": 6.24,
+      "t1": 8.2,
+      "y": 964,
+      "size": 68,
+      "font": "ui",
+      "weight": 600,
+      "preset": "rise",
+      "color": "dim",
+      "shadow": false
+    },
+    {
+      "id": "l3d",
+      "kind": "text",
+      "text": "where you are.",
+      "t0": 6.52,
+      "t1": 8.2,
+      "y": 1060,
+      "size": 68,
+      "font": "ui",
+      "weight": 600,
+      "preset": "rise",
+      "color": "dim",
+      "shadow": false
+    },
+    {
+      "id": "l4k",
+      "kind": "kicker",
+      "text": "THE FIX",
+      "t0": 8.28,
+      "t1": 10.8,
+      "y": 470
+    },
+    {
+      "id": "l4a",
+      "kind": "text",
+      "text": "RAISE OR FOLD.",
+      "t0": 8.36,
+      "t1": 10.8,
+      "y": 700,
+      "size": 106,
+      "preset": "slam",
+      "exit": "lift"
+    },
+    {
+      "id": "l4r",
+      "kind": "rule",
+      "t0": 8.86,
+      "t1": 10.8,
+      "y": 812,
+      "width": 640,
+      "height": 6,
+      "color": "accent",
+      "in": 0.55
+    },
+    {
+      "id": "l4b",
+      "kind": "text",
+      "text": "Limping is a leak.",
+      "t0": 9.18,
+      "t1": 10.8,
+      "y": 950,
+      "size": 86,
+      "preset": "pop",
+      "color": "bad"
+    },
+    {
+      "id": "l4c",
+      "kind": "text",
+      "text": "NOFACEPOKER · $1/$2",
+      "t0": 9.8,
+      "t1": 10.8,
+      "y": 1130,
+      "size": 34,
+      "font": "ui",
+      "weight": 700,
+      "tracking": 0.14,
+      "preset": "rise",
+      "color": "dim",
+      "shadow": false
+    }
+  ],
+  "y_offset": 130
+}

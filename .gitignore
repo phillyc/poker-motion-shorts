@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+out/*.mp4
+out/*.wav
+out/*.npy
+out/vo_*/
+out/frames/
+out/stills*/
+out/s1/
+out/s2/
+*.pyc
