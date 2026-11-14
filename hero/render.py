@@ -445,7 +445,7 @@ def scene6(base, f, rot):
         a *= 1 - clamp01((f - 1328) / 8.0)
         put_line(base, "THE CHEAPEST EDGE AT $1/$2", font(INTER, 28, (14, 700)), 1176,
                  IVORY, dy=d, alpha=a * 0.62, tracking=0.10, shadow=False)
-        hd = text_img("NOFACE POKER", font(INTER, 24, (14, 700)), MUTE, 0.16)
+        hd = text_img("NOFACESPOKER", font(INTER, 24, (14, 700)), MUTE, 0.16)
         blit(base, hd, 130 + hd.width / 2, 1392 + d, alpha=a * 0.8)
 
 # ---------------------------------------------------------------- assembly
