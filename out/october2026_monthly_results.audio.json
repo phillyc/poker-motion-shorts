@@ -1,0 +1,96 @@
+{
+  "music": "ian-post-never-gonna-get-me",
+  "music_offset": 60.0,
+  "bed_rms_db": -21.0,
+  "duck": 0.7,
+  "measured": {
+    "video": "h264",
+    "audio": "aac",
+    "sr": 48000,
+    "ch": 2,
+    "kbps": 193,
+    "duration": 51.0,
+    "lufs": -14.3,
+    "lra": 3.1,
+    "true_peak": -2.3
+  },
+  "cue_map": {
+    "bed_mute": [
+      25.0,
+      26.5
+    ],
+    "vo_lines": 15,
+    "sfx": [
+      {
+        "asset": "impact-bomb",
+        "t": 0.0,
+        "gain": 0.8
+      },
+      {
+        "asset": "synth-tick",
+        "t": 14.0,
+        "n": 6
+      },
+      {
+        "asset": "impact-bomb",
+        "t": 16.667,
+        "gain": 0.6
+      },
+      {
+        "asset": "cards-shuffle",
+        "t": 21.333,
+        "gain": 0.42
+      },
+      {
+        "asset": "cards-shuffle",
+        "t": 21.867,
+        "gain": 0.42
+      },
+      {
+        "asset": "cards-shuffle",
+        "t": 22.4,
+        "gain": 0.42
+      },
+      {
+        "asset": "cards-shuffle",
+        "t": 22.933,
+        "gain": 0.42
+      },
+      {
+        "asset": "cards-shuffle",
+        "t": 23.467,
+        "gain": 0.42
+      },
+      {
+        "asset": "cards-shuffle",
+        "t": 24.0,
+        "gain": 0.42
+      },
+      {
+        "asset": "impact-bomb",
+        "t": 26.5,
+        "gain": 0.7
+      },
+      {
+        "asset": "cash-register",
+        "t": 26.52,
+        "gain": 0.55
+      },
+      {
+        "asset": "whoosh-air-slicer",
+        "t": 30.0,
+        "gain": 0.7
+      },
+      {
+        "asset": "synth-tick",
+        "t": 43.0,
+        "n": 2
+      },
+      {
+        "asset": "impact-bomb",
+        "t": 46.333,
+        "gain": 0.7
+      }
+    ]
+  }
+}

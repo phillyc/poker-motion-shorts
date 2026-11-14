@@ -1,0 +1,1190 @@
+{
+  "id": "poker-monthly-october-2026-results",
+  "title": "October 2026: The Month in the Red",
+  "concept": "monthly-results-recap",
+  "period": "2026-10",
+  "audience": "nofacepoker vlog viewers + live low-stakes cash $1/$2-$2/$5",
+  "format": "results-recap-kinetic-typography",
+  "currency": "USD",
+  "composite": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 1530,
+    "durationSeconds": 51.0
+  },
+  "safeArea": {
+    "topPx": 250,
+    "bottomPx": 1440,
+    "horizontalMarginPx": 110,
+    "maxTextWidthPx": 860,
+    "captionBaselineY": 1380,
+    "note": "Both YouTube Shorts and Instagram Reels chrome must be clear. Nothing readable above y=250 or below y=1440."
+  },
+  "tokens": {
+    "color": {
+      "felt900": "#08110E",
+      "felt700": "#123B2E",
+      "ivory": "#F4EFE6",
+      "loss": "#FF4D3D",
+      "win": "#35E1C4",
+      "chip": "#E8B44A",
+      "mute": "#6E7C77",
+      "cardRed": "#D8323C"
+    },
+    "semantics": {
+      "loss": "money lost ONLY. negative bars, -$2,045 hook, loss numerals.",
+      "win": "money won ONLY. positive bars, win numerals.",
+      "chip": "the high hand, the bankroll figure, hero numerals, hairline rules.",
+      "rule": "Red and cyan are never decorative. Nothing else in the video may be red."
+    },
+    "type": {
+      "hero": {
+        "family": "Archivo Black",
+        "fallback": "Liberation Sans Bold, Anton, sans-serif",
+        "sizePx": 220,
+        "tracking": "-0.03em",
+        "numeric": "tabular"
+      },
+      "hook": {
+        "family": "Archivo Black",
+        "fallback": "Liberation Sans Bold, Anton, sans-serif",
+        "sizePx": 148,
+        "case": "upper",
+        "letterSpacing": "-0.02em",
+        "lineHeight": 0.92
+      },
+      "claim": {
+        "family": "Archivo Black",
+        "fallback": "Liberation Sans Bold, Anton, sans-serif",
+        "sizePx": 92,
+        "case": "upper",
+        "lineHeight": 0.95
+      },
+      "label": {
+        "family": "Inter",
+        "weight": 800,
+        "fallback": "Liberation Sans Bold",
+        "sizePx": 44,
+        "case": "upper",
+        "letterSpacing": "0.08em"
+      },
+      "caption": {
+        "family": "Inter",
+        "weight": 700,
+        "fallback": "Liberation Sans Bold",
+        "sizePx": 40,
+        "case": "sentence"
+      },
+      "micro": {
+        "family": "Inter",
+        "weight": 600,
+        "fallback": "Liberation Sans Bold",
+        "sizePx": 28,
+        "letterSpacing": "0.04em",
+        "color": "mute"
+      },
+      "axis": {
+        "family": "Inter",
+        "weight": 600,
+        "fallback": "Liberation Sans Bold",
+        "sizePx": 24,
+        "color": "mute"
+      }
+    },
+    "maxWordsPerCard": 5,
+    "numericRule": "All money figures tabular. $ sign occupies fixed width so count-ups do not jitter."
+  },
+  "motion": {
+    "spring": {
+      "type": "spring",
+      "stiffness": 320,
+      "damping": 22,
+      "mass": 0.9
+    },
+    "springDeal": {
+      "type": "spring",
+      "stiffness": 448,
+      "damping": 26,
+      "mass": 0.9
+    },
+    "presets": {
+      "slamIn": {
+        "from": {
+          "scale": 1.14,
+          "opacity": 0
+        },
+        "to": {
+          "scale": 1.0,
+          "opacity": 1
+        },
+        "frames": 9,
+        "easing": "spring"
+      },
+      "riseIn": {
+        "from": {
+          "translateY": 26,
+          "opacity": 0
+        },
+        "to": {
+          "translateY": 0,
+          "opacity": 1
+        },
+        "frames": 10
+      },
+      "snapOut": {
+        "from": {
+          "opacity": 1,
+          "translateY": 0
+        },
+        "to": {
+          "opacity": 0,
+          "translateY": -20
+        },
+        "frames": 4,
+        "easing": "linear"
+      },
+      "barGrow": {
+        "frames": 10,
+        "easing": "spring",
+        "transformOrigin": "zeroLineY"
+      },
+      "countUp": {
+        "frames": 18,
+        "easing": "easeOut",
+        "tabular": true
+      },
+      "dealCard": {
+        "from": {
+          "translateY": -160,
+          "rotate": 8
+        },
+        "to": {
+          "translateY": 0,
+          "rotate": 0
+        },
+        "frames": 12,
+        "easing": "springDeal"
+      },
+      "ringSweep": {
+        "fromDeg": 0,
+        "toDeg": 81.7,
+        "frames": 24,
+        "easing": "easeOut",
+        "strokePx": 6,
+        "color": "chip"
+      },
+      "odometerRoll": {
+        "frames": 22,
+        "color": "chip"
+      },
+      "shake": {
+        "amplitudePx": 10,
+        "frameStep": 2,
+        "frames": 3,
+        "maxPerVideo": 1
+      },
+      "whiteFlash": {
+        "frames": 2,
+        "color": "ivory",
+        "opacity": 0.12,
+        "maxPerVideo": 1
+      }
+    },
+    "hardRule": "Audio-off comprehension. Every spoken figure has a matching type card at the same frame. There is no separate subtitle track; the kinetic type is the caption."
+  },
+  "audio": {
+    "music": {
+      "bpm": 92,
+      "character": "minimal dark pulse, minor key, no triumphant resolve",
+      "duckUnderVoDb": -14
+    },
+    "sfx": [
+      {
+        "frame": 0,
+        "sound": "sub-hit"
+      },
+      {
+        "frameRules": "one low tick per bar growth, f420-f535, pitch rises up-chart and drops for each negative bar"
+      },
+      {
+        "frame": 500,
+        "sound": "sub-hit + 3-frame shake (bar 3 lands)"
+      },
+      {
+        "frameRange": [
+          640,
+          720
+        ],
+        "sound": "card-flick x5 (5 frames apart)"
+      },
+      {
+        "frameRange": [
+          750,
+          795
+        ],
+        "sound": "near-silence: music drop, no SFX. The silence is the punctuation."
+      },
+      {
+        "frame": 795,
+        "sound": "sub-hit + gold chime"
+      },
+      {
+        "frameRange": [
+          900,
+          924
+        ],
+        "sound": "subtle ring-sweep whoosh"
+      },
+      {
+        "frameRange": [
+          1290,
+          1312
+        ],
+        "sound": "odometer ticks x2"
+      },
+      {
+        "frameRange": [
+          1330,
+          1390
+        ],
+        "sound": "riser"
+      },
+      {
+        "frame": 1390,
+        "sound": "riser-resolve + sub-hit"
+      }
+    ],
+    "vo": {
+      "wpmTarget": 122,
+      "wordCount": 103,
+      "speakingSeconds": 41.0,
+      "character": "warm, flat, matter-of-fact, box-score delivery. Not an announcer, not apologetic.",
+      "note": "Segments are defined per scene (voSegments) with explicit in/out frames, not per beat - the read is one continuous voice with deliberate gaps. Max any segment runs is 170 wpm.",
+      "maxSegmentWpm": 169.4
+    }
+  },
+  "chart": {
+    "id": "session-chart",
+    "persistent": true,
+    "note": "Built once in S3.2, reused at 100% in S5.1. Do not redraw.",
+    "geometry": {
+      "bandX": 110,
+      "bandWidth": 860,
+      "zeroLineY": 920,
+      "pxPerDollar": 0.18,
+      "scaleReference": {
+        "dollars": 2000,
+        "px": 360
+      },
+      "barWidth": 75,
+      "gap": 12,
+      "pitch": 87,
+      "maxBarBottomY": 1280,
+      "safeLineClearancePx": 160,
+      "xFormula": "x = 110 + 87 * (i - 1)"
+    },
+    "bars": [
+      {
+        "i": 1,
+        "date": "10/03",
+        "game": "1/2",
+        "value": -15,
+        "h": 3,
+        "x": 110,
+        "color": "loss",
+        "label": "-$15"
+      },
+      {
+        "i": 2,
+        "date": "10/03",
+        "game": "2/5",
+        "value": 686,
+        "h": 123,
+        "x": 197,
+        "color": "win",
+        "label": "+$686",
+        "annotation": "BEST NIGHT"
+      },
+      {
+        "i": 3,
+        "date": "10/10",
+        "game": "2/5",
+        "value": -2000,
+        "h": 360,
+        "x": 284,
+        "color": "loss",
+        "label": "-$2,000",
+        "annotation": "THE NIGHT"
+      },
+      {
+        "i": 4,
+        "date": "10/15",
+        "game": "2/5",
+        "value": -587,
+        "h": 106,
+        "x": 371,
+        "color": "loss",
+        "label": "-$587"
+      },
+      {
+        "i": 5,
+        "date": "10/17",
+        "game": "1/2",
+        "value": -39,
+        "h": 7,
+        "x": 458,
+        "color": "loss",
+        "label": "-$39"
+      },
+      {
+        "i": 6,
+        "date": "10/22",
+        "game": "1/2",
+        "value": 0,
+        "h": 2,
+        "x": 545,
+        "color": "mute",
+        "label": "EVEN",
+        "hairline": true
+      },
+      {
+        "i": 7,
+        "date": "10/24",
+        "game": "1/2",
+        "value": 280,
+        "h": 50,
+        "x": 632,
+        "color": "win",
+        "label": "+$280"
+      },
+      {
+        "i": 8,
+        "date": "10/28",
+        "game": "1/2",
+        "value": -565,
+        "h": 102,
+        "x": 719,
+        "color": "loss",
+        "label": "-$565"
+      },
+      {
+        "i": 9,
+        "date": "10/31",
+        "game": "2/5",
+        "value": -270,
+        "h": 49,
+        "x": 806,
+        "color": "loss",
+        "label": "-$270"
+      },
+      {
+        "i": 10,
+        "date": "10/31",
+        "game": "HH",
+        "value": 465,
+        "h": 84,
+        "x": 893,
+        "color": "chip",
+        "label": "+$465",
+        "annotation": "HIGH HAND",
+        "outline": "chip"
+      }
+    ],
+    "derived": {
+      "total": -2045,
+      "grossWinnings": 1431,
+      "grossLosses": -3476
+    }
+  },
+  "facts": {
+    "total_win_loss": -2045,
+    "sessions": 10,
+    "hours": 34.75,
+    "winning_sessions": 3,
+    "losing_sessions": 6,
+    "breakeven_sessions": 1,
+    "high_hand": {
+      "date": "10/31",
+      "hand": "AAA-KK",
+      "handSpelled": "aces full of kings",
+      "gross": 500,
+      "tip": 35,
+      "net": 465
+    },
+    "high_hand_pct_of_abs_net": 22.7,
+    "net_without_high_hand": -2510,
+    "worst_session": {
+      "date": "10/10",
+      "game": "2/5",
+      "buyIn": 2000,
+      "cashOut": 0,
+      "result": -2000
+    },
+    "net_excluding_worst_session": -45,
+    "best_session": {
+      "date": "10/03",
+      "game": "2/5",
+      "result": 686
+    },
+    "gross_winnings": 1431,
+    "gross_losses": -3476,
+    "win_rate_per_hour": -58.85,
+    "win_rate_per_hour_ex_high_hand": -72.23,
+    "bankroll_start": -9220,
+    "bankroll_end": -11265,
+    "location": "Orange City",
+    "stakes": [
+      "1/2",
+      "2/5"
+    ],
+    "check_invariant": "sum(session results) == -2045 == buyIns(8285) - cashOuts(6240) == bankrollDelta(-2045)"
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "name": "HOOK",
+      "inFrame": 0,
+      "outFrame": 165,
+      "seconds": "0.00-5.50",
+      "visual": "felt900 flat. No table, no cards, no logo. A 3px 'loss' hairline under the hero numeral is the only element that persists into S2 and returns at the loop point.",
+      "voSegments": [
+        {
+          "inFrame": 6,
+          "outFrame": 145,
+          "text": "October. Ten sessions. Down two thousand and forty-five dollars.",
+          "words": 9,
+          "wpm": 116.5
+        }
+      ],
+      "beats": [
+        {
+          "id": "S1.1",
+          "inFrame": 0,
+          "outFrame": 85,
+          "elements": [
+            {
+              "text": "OCTOBER 2026",
+              "role": "micro",
+              "y": 560,
+              "color": "ivory"
+            },
+            {
+              "text": "-$2,045",
+              "role": "hero",
+              "y": 760,
+              "color": "loss",
+              "sizePx": 220
+            }
+          ],
+          "animation": "micro fade-up 8 frames; hero slamIn on f0 with sub-hit. No logo, no greeting, no fade from black. The number is the first pixel that matters."
+        },
+        {
+          "id": "S1.2",
+          "inFrame": 85,
+          "outFrame": 130,
+          "text": "10 SESSIONS · 34.75 HOURS",
+          "role": "label",
+          "y": 1000,
+          "color": "ivory",
+          "animation": "riseIn; 'loss' hairline draws left-to-right in 8 frames under it."
+        },
+        {
+          "id": "S1.3",
+          "inFrame": 130,
+          "outFrame": 165,
+          "text": "ORANGE CITY · $1/$2 & $2/$5",
+          "role": "micro",
+          "y": 1100,
+          "animation": "riseIn. Then hold still - the VO is still finishing the number."
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "VOLUME",
+      "inFrame": 165,
+      "outFrame": 315,
+      "seconds": "5.50-10.50",
+      "visual": "Hero numeral rises to y=430 and shrinks to 92px - stays as a persistent watermark for the rest of the video. Ten session dots lay out in one row at y=760.",
+      "voSegments": [
+        {
+          "inFrame": 175,
+          "outFrame": 235,
+          "text": "Thirty-four and three-quarter hours.",
+          "words": 4,
+          "wpm": 120.0
+        },
+        {
+          "inFrame": 245,
+          "outFrame": 315,
+          "text": "Three wins. Six losses. One push.",
+          "words": 6,
+          "wpm": 154.3
+        }
+      ],
+      "beats": [
+        {
+          "id": "S2.1",
+          "inFrame": 165,
+          "outFrame": 240,
+          "text": "TEN SESSIONS.",
+          "role": "claim",
+          "y": 600,
+          "color": "ivory",
+          "elements": [
+            {
+              "type": "dotRow",
+              "count": 10,
+              "diameterPx": 44,
+              "pitchPx": 78,
+              "startX": 146,
+              "y": 760,
+              "colors": [
+                "loss",
+                "win",
+                "loss",
+                "loss",
+                "loss",
+                "mute",
+                "win",
+                "loss",
+                "loss",
+                "chip"
+              ],
+              "note": "dot 10 is the high-hand entry: 'chip' fill with a 'win' ring"
+            }
+          ],
+          "animation": "dots pop in left-to-right 4 frames apart with a tick each; colour IS the result."
+        },
+        {
+          "id": "S2.2",
+          "inFrame": 240,
+          "outFrame": 315,
+          "rows": [
+            {
+              "value": 3,
+              "valueColor": "win",
+              "label": "WINS",
+              "labelColor": "win",
+              "y": 1000
+            },
+            {
+              "value": 6,
+              "valueColor": "loss",
+              "label": "LOSSES",
+              "labelColor": "loss",
+              "y": 1150,
+              "sizeMultiplier": 1.2
+            },
+            {
+              "value": 1,
+              "valueColor": "mute",
+              "label": "EVEN",
+              "labelColor": "mute",
+              "y": 1300
+            }
+          ],
+          "rowGeometry": "Numerals 140px Archivo Black tabular, left edge x=110; labels 44px right-aligned to x=970.",
+          "animation": "rows build 12 frames apart; numerals countUp 0->n over 18 frames. The 6 is 20% larger - that is the story."
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "THE SWING",
+      "inFrame": 315,
+      "outFrame": 630,
+      "seconds": "10.50-21.00",
+      "visual": "Tally clears. The session chart draws itself left-to-right; this same chart layer is reused at 100% in S5, so build it once.",
+      "usesChart": true,
+      "voSegments": [
+        {
+          "inFrame": 330,
+          "outFrame": 420,
+          "text": "One night did almost all of it.",
+          "words": 7,
+          "wpm": 140.0
+        },
+        {
+          "inFrame": 430,
+          "outFrame": 520,
+          "text": "October tenth - two thousand in, nothing out.",
+          "words": 8,
+          "wpm": 160.0
+        },
+        {
+          "inFrame": 535,
+          "outFrame": 630,
+          "text": "Take that night out, October's down forty-five dollars.",
+          "words": 8,
+          "wpm": 151.6
+        }
+      ],
+      "beats": [
+        {
+          "id": "S3.1",
+          "inFrame": 315,
+          "outFrame": 420,
+          "elements": [
+            {
+              "text": "10.10.2026 · $2/5",
+              "role": "label",
+              "y": 470,
+              "color": "mute"
+            },
+            {
+              "text": "-$2,000",
+              "role": "hero",
+              "y": 580,
+              "color": "loss",
+              "sizePx": 200
+            },
+            {
+              "text": "$2,000 IN. $0 OUT.",
+              "role": "micro",
+              "y": 720,
+              "color": "mute"
+            }
+          ],
+          "animation": "hero slamIn at f330. Chart layer opacity 0."
+        },
+        {
+          "id": "S3.2",
+          "inFrame": 420,
+          "outFrame": 535,
+          "chartAction": "grow all 10 bars left-to-right, 14 frames apart; bar 3 (10/10) takes 18 frames",
+          "animation": "hero shrinks to the y=430 watermark. One tick per bar, pitch rises up-chart and drops on each negative. 3-frame shake on bar 3 landing (the ONLY shake). Bar 3 bottoms at y=1280."
+        },
+        {
+          "id": "S3.3",
+          "inFrame": 535,
+          "outFrame": 630,
+          "chartAction": "bar 3 fades to 22% opacity; a 2px dashed 'loss' outline remains",
+          "panel": {
+            "w": 820,
+            "h": 200,
+            "centerY": 400,
+            "radius": 20,
+            "fill": "felt700",
+            "fillOpacity": 0.92,
+            "stroke": "chip",
+            "strokePx": 1,
+            "note": "Sits in the empty band above the plot area (plot top is y=560). Does NOT overlap any bar."
+          },
+          "elements": [
+            {
+              "text": "WITHOUT THAT NIGHT",
+              "role": "micro",
+              "sizePx": 36,
+              "y": 352,
+              "color": "mute"
+            },
+            {
+              "text": "-$45",
+              "role": "hero",
+              "sizePx": 120,
+              "y": 440,
+              "color": "ivory"
+            }
+          ],
+          "animation": "bar 3 dims over 12 frames; panel scales 0.96->1.00; value counts up from -$2,045 to -$45 over 22 frames."
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "THE HIGH HAND",
+      "inFrame": 630,
+      "outFrame": 990,
+      "seconds": "21.00-33.00",
+      "visual": "Chart and callout snap out. Everything desaturates to 25% - the month is dark and this is the one lit room in it. Gold is introduced here for the first time in the video.",
+      "voSegments": [
+        {
+          "inFrame": 640,
+          "outFrame": 730,
+          "text": "Then, the last night: aces full of kings.",
+          "words": 8,
+          "wpm": 160.0
+        },
+        {
+          "inFrame": 800,
+          "outFrame": 900,
+          "text": "High hand. Five hundred, minus a thirty-five dollar tip.",
+          "words": 9,
+          "wpm": 162.0
+        },
+        {
+          "inFrame": 905,
+          "outFrame": 990,
+          "text": "Four sixty-five back, a quarter of the damage.",
+          "words": 8,
+          "wpm": 169.4
+        }
+      ],
+      "beats": [
+        {
+          "id": "S4.1",
+          "inFrame": 630,
+          "outFrame": 750,
+          "elements": [
+            {
+              "text": "10.31.2026 · ORANGE CITY",
+              "role": "label",
+              "y": 430,
+              "color": "mute"
+            },
+            {
+              "type": "cardRow",
+              "cards": [
+                "A♣",
+                "A♦",
+                "A♥",
+                "K♠",
+                "K♥"
+              ],
+              "w": 200,
+              "h": 285,
+              "overlapPx": 18,
+              "y": 760,
+              "fanDeg": 3,
+              "face": "ivory",
+              "strokePx": 2,
+              "stroke": "felt700",
+              "shrinkInS42": {
+                "w": 130,
+                "h": 185,
+                "centerY": 1210,
+                "opacity": 0.35
+              }
+            },
+            {
+              "text": "ACES FULL OF KINGS",
+              "role": "micro",
+              "sizePx": 34,
+              "y": 1000,
+              "color": "ivory"
+            }
+          ],
+          "animation": "dealCard x5, 5 frames apart starting f640; cards land fanned +/-3 degrees.",
+          "sfx": "card-flick x5"
+        },
+        {
+          "id": "S4.2",
+          "inFrame": 750,
+          "outFrame": 900,
+          "deadAir": {
+            "inFrame": 750,
+            "outFrame": 795,
+            "note": "Music drops, no SFX. 1.5s of near-silence - the silence IS the punchline. Do not fill it."
+          },
+          "elements": [
+            {
+              "text": "HIGH HAND",
+              "role": "hook",
+              "sizePx": 148,
+              "y": 600,
+              "color": "chip"
+            },
+            {
+              "type": "equationRow",
+              "y": 900,
+              "items": [
+                {
+                  "text": "$500",
+                  "color": "ivory",
+                  "sizePx": 130
+                },
+                {
+                  "text": "−",
+                  "color": "mute",
+                  "sizePx": 130
+                },
+                {
+                  "text": "$35 TIP",
+                  "color": "mute",
+                  "sizePx": 90
+                },
+                {
+                  "text": "=",
+                  "color": "mute",
+                  "sizePx": 130
+                },
+                {
+                  "text": "+$465",
+                  "color": "chip",
+                  "sizePx": 130,
+                  "countUp": true
+                }
+              ],
+              "maxWidthPx": 800,
+              "sizesPx": {
+                "value": 110,
+                "operator": 70,
+                "tipLabel": 80
+              }
+            }
+          ],
+          "animation": "At f795: 2-frame ivory flash at 12% (the ONLY flash), then the stamp slamIn and chime. '+$465' counts up last over 22 frames, ending 4% oversize then settling.",
+          "cardReaction": "In S4.2 the card row shrinks from 200x285 to 130x185 and drops to y=1210 (spans ~1117-1302, clears the y=1440 safe line by 138px) so the stamp has clean air. Cards stay dimmed to 35%."
+        },
+        {
+          "id": "S4.3",
+          "inFrame": 900,
+          "outFrame": 990,
+          "elements": [
+            {
+              "type": "ring",
+              "diameterPx": 480,
+              "centerY": 650,
+              "strokePx": 7,
+              "color": "chip",
+              "arcFromDeg": 0,
+              "arcToDeg": 81.7
+            },
+            {
+              "text": "22.7%",
+              "role": "hero",
+              "sizePx": 135,
+              "y": 650,
+              "color": "chip"
+            },
+            {
+              "text": "OF THE MONTH'S LOSS",
+              "role": "label",
+              "y": 890,
+              "color": "ivory"
+            },
+            {
+              "type": "statRow",
+              "y": 975,
+              "label": "WITHOUT IT",
+              "value": "-$2,510",
+              "valueColor": "loss",
+              "valueSizePx": 100,
+              "valueY": 1070
+            }
+          ],
+          "animation": "ring sweeps clockwise 0->81.7deg over 24 frames while percent counts 0->22.7; dashed 'loss' baseline runs under the ring; -$2,510 riseIn 6 frames after the ring closes.",
+          "geometryNote": "Ring 480px dia centred y=650 spans 410-890. 135px numeral inside it (text width ~430 < 466 inner dia). Label y=890, 'WITHOUT IT' y=975, -$2,510 y=1070. No overlaps."
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "THE SHAPE",
+      "inFrame": 990,
+      "outFrame": 1290,
+      "seconds": "33.00-43.00",
+      "visual": "The S3 chart returns fully coloured, no dimming, date ticks visible. This is the screenshot frame.",
+      "usesChart": true,
+      "voSegments": [
+        {
+          "inFrame": 995,
+          "outFrame": 1090,
+          "text": "Fourteen thirty-one in wins. Thirty-four seventy-six in losses.",
+          "words": 8,
+          "wpm": 151.6
+        },
+        {
+          "inFrame": 1105,
+          "outFrame": 1160,
+          "text": "Best night: six eighty-six.",
+          "words": 4,
+          "wpm": 130.9
+        },
+        {
+          "inFrame": 1215,
+          "outFrame": 1290,
+          "text": "Without it: twenty-five ten in the red.",
+          "words": 7,
+          "wpm": 168.0
+        }
+      ],
+      "beats": [
+        {
+          "id": "S5.1",
+          "inFrame": 990,
+          "outFrame": 1100,
+          "chartAction": "chart re-enters at 100% opacity as one unit (10 frames) - it does NOT redraw. Add date ticks (10/03, 10/10, 10/15, 10/24, 10/31) at 24px 'mute' under the zero line and value labels above/below each bar at 24px 'mute'; bar 10's label '+$465' in 'chip'."
+        },
+        {
+          "id": "S5.2",
+          "inFrame": 1100,
+          "outFrame": 1210,
+          "chartAction": "chart dims to 15%",
+          "bars": [
+            {
+              "label": "WON +$1,431",
+              "x": 110,
+              "y": 700,
+              "h": 90,
+              "width": 354,
+              "color": "win"
+            },
+            {
+              "label": "LOST -$3,476",
+              "x": 110,
+              "y": 880,
+              "h": 90,
+              "width": 860,
+              "color": "loss"
+            }
+          ],
+          "barWidthRatio": 0.4116,
+          "elements": [
+            {
+              "text": "2.4×",
+              "role": "claim",
+              "sizePx": 60,
+              "x": 970,
+              "y": 740,
+              "align": "right",
+              "color": "ivory"
+            }
+          ],
+          "animation": "win bar grows first (16 frames), loss bar grows to full width (22 frames); 2.4x lands 8 frames later. The length difference is the message."
+        },
+        {
+          "id": "S5.3",
+          "inFrame": 1210,
+          "outFrame": 1290,
+          "elements": [
+            {
+              "text": "-$58.85 / HR",
+              "role": "hero",
+              "sizePx": 160,
+              "y": 720,
+              "color": "loss"
+            },
+            {
+              "text": "34.75 HOURS PLAYED",
+              "role": "micro",
+              "sizePx": 34,
+              "y": 860,
+              "color": "mute"
+            },
+            {
+              "text": "-$72.23 / HR WITHOUT THE HIGH HAND",
+              "role": "micro",
+              "sizePx": 30,
+              "y": 930,
+              "color": "mute",
+              "opacity": 0.85
+            }
+          ],
+          "animation": "numeral riseIn; second micro fades up 10 frames later - it is the fine print and it is the honest part."
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "name": "VERDICT",
+      "inFrame": 1290,
+      "outFrame": 1440,
+      "seconds": "43.00-48.00",
+      "visual": "Clean felt900 again. One panel, one idea: where the bankroll went.",
+      "voSegments": [
+        {
+          "inFrame": 1295,
+          "outFrame": 1380,
+          "text": "Nine two twenty in. Eleven two sixty-five out.",
+          "words": 8,
+          "wpm": 169.4
+        },
+        {
+          "inFrame": 1395,
+          "outFrame": 1425,
+          "text": "That's October.",
+          "words": 2,
+          "wpm": 120.0
+        }
+      ],
+      "beats": [
+        {
+          "id": "S6.1",
+          "inFrame": 1290,
+          "outFrame": 1390,
+          "elements": [
+            {
+              "text": "BANKROLL",
+              "role": "label",
+              "y": 620,
+              "color": "mute"
+            },
+            {
+              "text": "-$9,220",
+              "role": "hero",
+              "sizePx": 150,
+              "y": 740,
+              "color": "ivory",
+              "odometer": true
+            },
+            {
+              "type": "arrow",
+              "direction": "down",
+              "sizePx": 120,
+              "y": 860,
+              "color": "loss",
+              "heightPx": 70
+            },
+            {
+              "text": "-$11,265",
+              "role": "hero",
+              "sizePx": 150,
+              "y": 1000,
+              "color": "chip",
+              "odometer": true
+            },
+            {
+              "text": "START OF OCTOBER → END OF OCTOBER",
+              "role": "micro",
+              "sizePx": 30,
+              "y": 1120,
+              "color": "mute"
+            }
+          ],
+          "animation": "odometerRoll on both figures over 22 frames, offset 10 frames apart; arrow draws downward in 10 frames with a sub-hit. Gold on the second figure because it is where the next video starts.",
+          "geometryNote": "-$9,220 (150px) spans 665-815; arrow 830-900; -$11,265 spans 925-1075; micro y=1120."
+        },
+        {
+          "id": "S6.2",
+          "inFrame": 1390,
+          "outFrame": 1440,
+          "elements": [
+            {
+              "type": "rule",
+              "x": 110,
+              "w": 860,
+              "y": 700,
+              "color": "chip",
+              "strokePx": 1,
+              "drawFrames": 10
+            },
+            {
+              "text": "THAT'S OCTOBER.",
+              "role": "claim",
+              "sizePx": 92,
+              "y": 800,
+              "color": "ivory"
+            },
+            {
+              "text": "NO EXCUSES. THE MATH IS THE MATH.",
+              "role": "micro",
+              "sizePx": 30,
+              "y": 920,
+              "color": "mute"
+            }
+          ],
+          "animation": "riser resolves into the hairline at f1390; stamp slamIn; then 30 frames of complete stillness (f1410-1440). Do not decorate it - this is the credibility beat."
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "name": "OUT / LOOP",
+      "inFrame": 1440,
+      "outFrame": 1530,
+      "seconds": "48.00-51.00",
+      "voSegments": [
+        {
+          "inFrame": 1445,
+          "outFrame": 1520,
+          "text": "November starts at minus eleven two sixty-five.",
+          "words": 7,
+          "wpm": 168.0
+        }
+      ],
+      "beats": [
+        {
+          "id": "S7.1",
+          "inFrame": 1440,
+          "outFrame": 1500,
+          "elements": [
+            {
+              "text": "NOVEMBER STARTS AT\n-$11,265.",
+              "role": "claim",
+              "sizePx": 84,
+              "y": 760,
+              "color": "ivory",
+              "align": "center"
+            },
+            {
+              "text": "@nofacepoker",
+              "role": "micro",
+              "sizePx": 28,
+              "x": 110,
+              "y": 1360,
+              "align": "left",
+              "color": "mute"
+            }
+          ],
+          "animation": "riseIn, no slam - the energy drops on purpose. No CTA shouting."
+        },
+        {
+          "id": "S7.2",
+          "inFrame": 1500,
+          "outFrame": 1530,
+          "animation": "everything snapOut except the 'loss' hairline from S1.1, which returns to its f0 position and opacity. Frame 1529 must match frame 0."
+        }
+      ]
+    }
+  ],
+  "loop": {
+    "required": true,
+    "firstFrame": 0,
+    "lastFrame": 1529,
+    "assertion": "SSIM(firstFrame, lastFrame) > 0.98"
+  },
+  "renderedChecks": [
+    "durationInFrames == 1530 && durationSeconds == 51.0",
+    "width == 1080 && height == 1920 && fps == 30",
+    "no readable element above y=250 or below y=1440",
+    "chart max bar bottom y=1280 (160px clearance)",
+    "frame 0 visually equals frame 1529",
+    "every VO figure has matching on-screen type at the same frame",
+    "no VO segment exceeds 170 wpm",
+    "red only on money lost, cyan only on money won, gold only on high hand / bankroll / rules",
+    "exactly 1 shake (S3.2), 1 white flash (S4.2), 1 ring sweep (S4.3)",
+    "near-silence f750-795 survives the mix",
+    "muted playback tells the full month"
+  ],
+  "packaging": {
+    "titles": [
+      "October 2026: -$2,045. Here's exactly where it went.",
+      "One night cost me $2,000. The rest of the month was fine.",
+      "My October poker results (10 sessions, one high hand, one disaster)"
+    ],
+    "hashtags": [
+      "#poker",
+      "#texasholdem",
+      "#cashgame",
+      "#pokerresults",
+      "#pokerplayer",
+      "#Shorts"
+    ],
+    "coverFrame": 330,
+    "coverRationale": "-$2,000 hero numeral over the empty chart bed: highest-contrast frame at 12px thumbnail size. The number is the thumbnail, not a title card.",
+    "youtube": {
+      "container": "mp4",
+      "codec": "h264-high",
+      "videoBitrate": "12M",
+      "audioBitrate": "192k",
+      "titleMaxChars": 60
+    },
+    "instagram": {
+      "aspect": "9:16",
+      "minWidth": 720,
+      "minFps": 30,
+      "compliant": true
+    }
+  },
+  "layoutChecks": [
+    "no two elements' bounding boxes overlap within a beat",
+    "S3.3 callout occupies y 300-500 only; plot area starts y=560",
+    "S4.2 stamp occupies y 526-674; cards HUD at 1117-1302",
+    "S4.3 ring 425-895; -$2,510 row at y=990",
+    "equationRow autofits to maxWidthPx=800",
+    "no text block exceeds 860px wide at its role size"
+  ]
+}

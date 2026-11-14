@@ -1,0 +1,324 @@
+{
+  "id": "poker-position-same-hand-two-seats",
+  "title": "Same Hand. Two Seats.",
+  "concept": "position",
+  "audience": "live low-stakes cash $1/$2-$1/$3",
+  "format": "kinetic-typography",
+  "composite": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 1350,
+    "durationSeconds": 45.0
+  },
+  "safeArea": {
+    "topPx": 250,
+    "bottomPx": 1440,
+    "horizontalMarginPx": 110,
+    "maxTextWidthPx": 860,
+    "captionBaselineY": 1380,
+    "note": "Both YouTube Shorts and Instagram Reels chrome must be clear. Nothing readable above y=250 or below y=1440."
+  },
+  "tokens": {
+    "color": {
+      "felt900": "#08110E",
+      "felt700": "#123B2E",
+      "ivory": "#F4EFE6",
+      "early": "#FF4D3D",
+      "late": "#35E1C4",
+      "chip": "#E8B44A",
+      "mute": "#6E7C77",
+      "cardRed": "#D8323C"
+    },
+    "semantics": {
+      "early": "blind / acts first / guessing",
+      "late": "informed / acts last / responding",
+      "rule": "Red and cyan are never decorative. They only encode the two seats."
+    },
+    "type": {
+      "hook": { "family": "Archivo Black", "fallback": "Anton, sans-serif", "sizePx": 148, "case": "upper", "letterSpacing": "-0.02em", "lineHeight": 0.92 },
+      "claim": { "family": "Archivo Black", "fallback": "Anton, sans-serif", "sizePx": 96, "case": "upper", "lineHeight": 0.95 },
+      "label": { "family": "Inter", "weight": 800, "sizePx": 44, "case": "upper", "letterSpacing": "0.08em" },
+      "caption": { "family": "Inter", "weight": 700, "sizePx": 40, "case": "sentence" },
+      "micro": { "family": "Inter", "weight": 600, "sizePx": 28, "letterSpacing": "0.04em", "color": "mute" }
+    },
+    "maxWordsPerCard": 5
+  },
+  "motion": {
+    "spring": { "type": "spring", "stiffness": 320, "damping": 22, "mass": 0.9 },
+    "springDeal": { "type": "spring", "stiffness": 320, "damping": 26, "mass": 0.9 },
+    "presets": {
+      "slamIn": { "from": { "scale": 1.14, "opacity": 0 }, "to": { "scale": 1.0, "opacity": 1 }, "frames": 9, "easing": "spring" },
+      "riseIn": { "from": { "translateY": 26, "opacity": 0 }, "to": { "translateY": 0, "opacity": 1 }, "frames": 10 },
+      "snapOut": { "from": { "opacity": 1, "translateY": 0 }, "to": { "opacity": 0, "translateY": -20 }, "frames": 4, "easing": "linear" },
+      "dealCard": { "from": { "translateY": -160, "rotate": 8 }, "to": { "translateY": 0, "rotate": 0 }, "frames": 12, "easing": "springDeal" },
+      "countUp": { "frames": 18, "easing": "easeOut" },
+      "seatPulse": { "from": { "scale": 1.0, "opacity": 0.9 }, "to": { "scale": 1.35, "opacity": 0 }, "frames": 14, "repeat": 2 },
+      "shake": { "amplitudePx": 10, "frameStep": 2, "frames": 3, "maxPerVideo": 1 },
+      "splitWipe": { "frames": 6, "featherPx": 0 },
+      "whiteFlash": { "frames": 2, "color": "ivory", "opacity": 0.12, "maxPerVideo": 1 },
+      "wordStagger": { "perWordFrames": 3, "easing": "spring", "maxPerVideo": 1 }
+    },
+    "hardRule": "Audio-off comprehension. Every VO line has a matching type card at the same frame. There is no separate subtitle track; the kinetic type is the caption."
+  },
+  "audio": {
+    "music": { "bpm": 90, "character": "minimal dark pulse", "duckUnderVoDb": -14 },
+    "sfx": [
+      { "frame": 0, "sound": "sub-hit" },
+      { "frame": 135, "sound": "card-flick" },
+      { "frame": 145, "sound": "card-flick" },
+      { "frameRules": "one tick per seat, rising pitch, f345-f420" },
+      { "frame": 500, "sound": "sub-hit" },
+      { "frameRange": [915, 990], "sound": "riser" },
+      { "frame": 990, "sound": "sub-hit + riser-resolve" },
+      { "frameRange": [1155, 1185], "sound": "near-silence (music drop)" },
+      { "frame": 1185, "sound": "chime" }
+    ],
+    "vo": { "wpmTarget": 177, "wordCount": 124, "character": "warm, flat, conversational, no announcer energy" }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "name": "HOOK",
+      "inFrame": 0,
+      "outFrame": 135,
+      "seconds": "0.00-4.50",
+      "visual": "Black. 9-seat table ring fades to 20% opacity, reads as a diagram not a table. felt700 radial behind.",
+      "beats": [
+        {
+          "id": "S1.1", "inFrame": 0, "outFrame": 45,
+          "text": "SAME HAND.", "role": "hook", "y": 780, "color": "ivory",
+          "vo": "Same two cards.",
+          "animation": "slamIn at f0. No logo, no greeting, no fade from black.",
+          "sfx": "sub-hit"
+        },
+        {
+          "id": "S1.2", "inFrame": 45, "outFrame": 90,
+          "text": "TWO SEATS.", "role": "hook", "y": 940, "color": "ivory",
+          "prevTextReaction": "SAME HAND. rises to y=700 and shrinks to claim size (96px)",
+          "vo": "Two seats.",
+          "animation": "slamIn. seat1 pulses 'early'; seat6 pulses 'late' with 8-frame offset.",
+          "actors": [
+            { "seat": 1, "color": "early", "effect": "seatPulse" },
+            { "seat": 6, "color": "late", "effect": "seatPulse", "delayFrames": 8 }
+          ]
+        },
+        {
+          "id": "S1.3", "inFrame": 90, "outFrame": 135,
+          "text": "TWO RESULTS.", "role": "hook", "y": 1080, "color": "ivory",
+          "vo": "Two completely different results.",
+          "animation": "slamIn. Vertical hairline splits frame; left half +8% early tint, right half +8% late tint. Ring to 45% opacity."
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "THE HAND",
+      "inFrame": 135,
+      "outFrame": 285,
+      "seconds": "4.50-9.50",
+      "visual": "Hook text snapOut in one move. Table ring rotates 12 degrees so seat 1 sits top-left (9-handed orientation) and holds for the rest of the video.",
+      "beats": [
+        {
+          "id": "S2.1", "inFrame": 135, "outFrame": 195,
+          "elements": [
+            { "type": "card", "rank": "A", "suit": "spades", "w": 260, "h": 370, "radius": 6, "strokePx": 2 },
+            { "type": "card", "rank": "J", "suit": "spades", "w": 260, "h": 370, "radius": 6, "strokePx": 2 }
+          ],
+          "text": "THE SAME TWO CARDS", "role": "label", "y": 1180,
+          "vo": "Ace-jack suited. Everyone gets this hand.",
+          "animation": "Two dealCard presets 10 frames apart, spring overshoot settles.",
+          "sfx": "card-flick x2"
+        },
+        {
+          "id": "S2.2", "inFrame": 195, "outFrame": 240,
+          "text": "ONE HAND. TWO SEATS.", "role": "claim", "y": 980,
+          "vo": "Where you sit decides what it's worth.",
+          "animation": "Card pair duplicates (40% -> 100% crossfade); left copy slides left + tints 'early', right copy slides right + tints 'late'. 14-frame spring slide."
+        },
+        {
+          "id": "S2.3", "inFrame": 240, "outFrame": 285,
+          "text": "POSITION = WHEN YOU ACT", "role": "micro", "y": 1380,
+          "vo": "",
+          "animation": "Card copies shrink to 120x170 and park at y=1290 as persistent HUD. A 3px 'chip' arc draws clockwise around the ring over 30 frames (stroke dashoffset). Motif returns in S3 and reverses in S4."
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "EARLY POSITION - THE PROBLEM",
+      "inFrame": 285,
+      "outFrame": 585,
+      "seconds": "9.50-19.50",
+      "visual": "Everything dims to 30%. Seat 1 lights 'early'. This is the bad-line act.",
+      "beats": [
+        {
+          "id": "S3.1", "inFrame": 285, "outFrame": 345,
+          "text": "FIRST TO ACT", "role": "claim", "y": 560, "color": "ivory",
+          "kicker": { "text": "UNDER THE GUN", "role": "label", "y": 460, "color": "early" },
+          "vo": "From under the gun, you're first to act-",
+          "animation": "Seat 1 slam-pulses; 2px 'early' ring stays lit."
+        },
+        {
+          "id": "S3.2", "inFrame": 345, "outFrame": 420,
+          "text": "8 PLAYERS BEHIND YOU", "role": "claim", "y": 560,
+          "counter": { "from": 1, "to": 8, "color": "early", "tabular": true },
+          "vo": "with eight players behind you.",
+          "animation": "Chevron arrows sweep clockwise from seat 1, 9 frames total, one seat per tick, each lighting that seat dot in 'early' at 25%. Rising-pitch tick per seat. HOLD this beat - it is the most literal read of the seat diagram.",
+          "sfx": "tick x8 rising pitch"
+        },
+        {
+          "id": "S3.3", "inFrame": 420, "outFrame": 500,
+          "text": "NO IDEA\nWHAT'S COMING", "role": "claim", "y": 620,
+          "vo": "You have no idea what's coming.",
+          "animation": "A '?' glyph pops on each of the 8 seats sequentially (6 frames each, overlapping); all collapse to 40% opacity together at f490."
+        },
+        {
+          "id": "S3.4", "inFrame": 500, "outFrame": 585,
+          "text": "GUESSING.", "role": "hook", "y": 900, "color": "early",
+          "micro": { "text": "WORST INFORMATION AT THE TABLE", "role": "micro", "y": 1000 },
+          "vo": "So you guess. With the worst information at the table.",
+          "animation": "Desaturate everything to 'mute' in 10 frames; stamp slamIn; 3-frame shake (the ONLY shake in the video).",
+          "sfx": "sub-hit"
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "LATE POSITION - THE FIX",
+      "inFrame": 585,
+      "outFrame": 915,
+      "seconds": "19.50-30.50",
+      "visual": "Hard cut on the beat (no crossfade). Full colour returns, ring brightens, seat 6 (button) lights 'late'. The arc motif now animates COUNTER-clockwise: information flowing in, not decisions flowing out.",
+      "beats": [
+        {
+          "id": "S4.1", "inFrame": 585, "outFrame": 640,
+          "text": "LAST TO ACT", "role": "claim", "y": 560,
+          "kicker": { "text": "ON THE BUTTON", "role": "label", "y": 460, "color": "late" },
+          "vo": "On the button, you act last.",
+          "animation": "Hard cut. Gold button disc (90px) drops onto seat 6 and lands on the deal spring."
+        },
+        {
+          "id": "S4.2", "inFrame": 640, "outFrame": 720,
+          "text": "8 DECISIONS BEFORE YOURS", "role": "claim", "y": 560, "color": "late",
+          "counter": { "from": 0, "to": 8, "color": "late", "tabular": true },
+          "vo": "Every player has already decided before you do.",
+          "animation": "8 small 'late' dots travel seat->button along the arc, spread across 52 frames; each landing nudges the button ring +4%."
+        },
+        {
+          "id": "S4.3", "inFrame": 720, "outFrame": 820,
+          "rows": [
+            { "label": "FOLDED", "value": "5", "y": 1010 },
+            { "label": "LIMPED", "value": "2", "y": 1105 },
+            { "label": "RAISED", "value": "$15", "emphasis": "chip", "sizeMultiplier": 1.2, "y": 1200 }
+          ],
+          "rowGeometry": "3 rows, 95px pitch, label left / value right, 1px felt700 divider. Last row baseline 1200 - inside the y<=1440 safe band with 240px to spare.",
+          "vo": "You know who folded, who limped, who raised - and how much.",
+          "animation": "Rows riseIn 12 frames apart with 1px felt700 dividers. Values countUp. Chips stack behind the readout in 3 denominations."
+        },
+        {
+          "id": "S4.4", "inFrame": 820, "outFrame": 915,
+          "text": "YOU'RE NOT GUESSING.", "role": "claim", "y": 620, "color": "ivory",
+          "swapAtFrame": 870,
+          "swapText": "YOU'RE RESPONDING.",
+          "swapColor": "late",
+          "vo": "You're not guessing. You're responding.",
+          "animation": "First line riseIn ivory. Second slams over it in 'late' with a 2px 'late' underline drawn left-to-right in 6 frames."
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "THE EDGE - PAYOFF",
+      "inFrame": 915,
+      "outFrame": 1185,
+      "seconds": "30.50-39.50",
+      "visual": "Frame splits down the middle - the S1.3 hairline returns as a real divider. Left = red seat, right = cyan seat. SAME cards, both sides. This is the screenshot frame.",
+      "beats": [
+        {
+          "id": "S5.1", "inFrame": 915, "outFrame": 990,
+          "columns": [
+            { "side": "left", "tint": "early", "tintOpacity": 0.1, "cards": ["A♠", "J♠"], "label": "BLIND" },
+            { "side": "right", "tint": "late", "tintOpacity": 0.1, "cards": ["A♠", "J♠"], "label": "INFORMED" }
+          ],
+          "vo": "Same cards. Same opponents. Same board.",
+          "animation": "splitWipe 6 frames. Both mini-card pairs land on the SAME frame - the identicalness is the argument."
+        },
+        {
+          "id": "S5.2", "inFrame": 990, "outFrame": 1080,
+          "text": "POSITION IS FREE.", "role": "hook", "y": 780, "color": "ivory",
+          "vo": "The only thing that changed is what you knew.",
+          "animation": "2-frame ivory flash at 12% (the ONLY flash), then slamIn. Divider lines retract upward in 8 frames.",
+          "sfx": "sub-hit + riser resolve"
+        },
+        {
+          "id": "S5.3", "inFrame": 1080, "outFrame": 1185,
+          "lines": [
+            { "text": "IT DOESN'T CHANGE YOUR CARDS.", "color": "ivory" },
+            { "text": "IT CHANGES WHAT YOU KNOW.", "color": "late" }
+          ],
+          "role": "claim", "y": 760,
+          "vo": "Position doesn't change your cards. It changes how much you know when you act.",
+          "animation": "wordStagger at 3 frames per word - the ONLY staggered build. Then 20 frames of complete stillness (f1165-1185): nothing moves, let it land."
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "name": "RULE CARD + LOOP",
+      "inFrame": 1185,
+      "outFrame": 1350,
+      "seconds": "39.50-45.00",
+      "visual": "Rule panel: rounded 24px, felt700 at 90%, 1px chip hairline, 940x480px, centred y=880.",
+      "beats": [
+        {
+          "id": "S6.1", "inFrame": 1185, "outFrame": 1260,
+          "panel": { "w": 940, "h": 480, "radius": 24, "fill": "felt700", "fillOpacity": 0.9, "stroke": "chip", "strokePx": 1, "centerY": 880 },
+          "lines": [
+            { "text": "TIGHT UP FRONT.", "color": "ivory", "sizePx": 88 },
+            { "text": "WIDE ON THE BUTTON.", "color": "late", "sizePx": 88 }
+          ],
+          "vo": "Tight up front. Wide on the button.",
+          "preRoll": "Frames 1155-1185 are dead air with the music dropped out. The silence is the punctuation - do not fill it.",
+          "animation": "Panel scales 0.96 -> 1.00 in 10 frames, then lines slamIn sequentially. Chime."
+        },
+        {
+          "id": "S6.2", "inFrame": 1260, "outFrame": 1320,
+          "micro": { "text": "THE CHEAPEST EDGE AT $1/$2", "role": "micro", "y": 1180 },
+          "handle": { "position": "lower-left", "insideSafeBand": true },
+          "vo": "That's it. That's the whole edge.",
+          "animation": "micro fades up over 10 frames."
+        },
+        {
+          "id": "S6.3", "inFrame": 1320, "outFrame": 1350,
+          "vo": "",
+          "animation": "Panel and type snapOut. Ring returns dimmed to 20%, seats unlit, background felt900. Frame 1349 must be visually identical to frame 0 for a seamless loop."
+        }
+      ]
+    }
+  ],
+  "loop": { "required": true, "firstFrame": 0, "lastFrame": 1349, "assertion": "SSIM(firstFrame, lastFrame) > 0.98" },
+  "renderedChecks": [
+    "durationInFrames == 1350 && durationSeconds == 45.0",
+    "width == 1080 && height == 1920 && fps == 30",
+    "no readable element above y=250 or below y=1440",
+    "frame 0 visually equals frame 1349",
+    "every VO line has matching on-screen type at the same frame",
+    "red only on early/blind, cyan only on late/informed",
+    "exactly 1 shake, 1 white flash, 1 word stagger",
+    "muted playback teaches the full lesson",
+    ">= 1s silence before the rule card survives the mix"
+  ],
+  "packaging": {
+    "titles": [
+      "Same hand. Two seats. Two different results.",
+      "Why position beats good cards at $1/$2",
+      "You're playing the same hand wrong from early position"
+    ],
+    "hashtags": ["#poker", "#texasholdem", "#pokerstrategy", "#cashgame", "#pokerplayer", "#Shorts"],
+    "coverFrame": 96,
+    "coverRationale": "Split hook mid-fade: strongest red/cyan contrast at 12px grid size; must read as 'two things, opposite colours' as a thumbnail.",
+    "youtube": { "container": "mp4", "codec": "h264-high", "videoBitrate": "12M", "audioBitrate": "192k", "titleMaxChars": 60 },
+    "instagram": { "aspect": "9:16", "minWidth": 720, "minFps": 30, "compliant": true }
+  }
+}
