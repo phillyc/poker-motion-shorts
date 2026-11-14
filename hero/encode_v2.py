@@ -49,6 +49,7 @@ def main():
            "-c:v", "libx264", "-preset", "medium", "-crf", "17", "-maxrate", "14M", "-bufsize", "20M",
            "-profile:v", "high", "-level", "4.2", "-pix_fmt", "yuv420p",
            "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
+           "-af", "loudnorm=I=-14:TP=-1.5:LRA=9",
            "-shortest", "-movflags", "+faststart", out]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     t0 = time.time()

@@ -91,6 +91,11 @@ def main():
     ap.add_argument("out", nargs="?")
     ap.add_argument("--no-vo", action="store_true")
     ap.add_argument("--no-audio", action="store_true")
+    ap.add_argument("--audio-root", default=None,
+                    help="asset root for the Artlist sound bank (default: assets/audio, "
+                         "or $POKERFX_AUDIO_ROOT)")
+    ap.add_argument("--audio-engine", choices=["artlist", "synth"], default=None,
+                    help="artlist = real licensed audio (default), synth = legacy NumPy score")
     ap.add_argument("--stills", nargs="*", type=float, help="times (s) to dump PNG stills")
     ap.add_argument("--qa", action="store_true")
     args = ap.parse_args()
@@ -118,7 +123,8 @@ def main():
     wav = os.path.join(os.path.dirname(os.path.abspath(args.out)), spec["id"] + ".wav")
     if not args.no_audio:
         t0 = time.time()
-        A.build(spec, wav, with_vo=(not args.no_vo))
+        A.build(spec, wav, with_vo=(not args.no_vo),
+                root=args.audio_root, engine=args.audio_engine)
         print("audio built in %.1fs -> %s" % (time.time() - t0, wav))
 
     cmd = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",

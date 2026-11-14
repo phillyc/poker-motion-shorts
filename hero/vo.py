@@ -6,7 +6,11 @@ import edge_tts
 
 SR = 48000
 FPS = 30
-SPEC = "/home/ubuntu/.hermes/kanban/boards/poker-motion-shorts/attachments/t_d6979582/short-spec.json"
+# committed copy of the storyboard spec (was an ephemeral scratch attachment)
+SPEC = os.environ.get(
+    "HERO_SPEC",
+    os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                 "hero", "spec", "short-spec.json"))
 VOICE = "en-US-AndrewMultilingualNeural"
 RATE = "+12%"
 OUTDIR = "build/vo"

@@ -9,3 +9,13 @@ out/stills*/
 out/s1/
 out/s2/
 *.pyc
+build/
+out/_source/
+
+# Licensed Artlist audio — NOT redistributable, and this repo is public.
+# `assets/audio/manifest.json` stays tracked; run `python tools/fetch_audio.py`
+# to materialise the media from s3://pokerfx-audio. See LICENSES.md.
+assets/audio/music/
+assets/audio/sfx/
+*.mp3
+*.aac

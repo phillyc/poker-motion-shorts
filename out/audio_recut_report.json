@@ -1,0 +1,67 @@
+[
+  {
+    "project": "pot-odds",
+    "file": "out/pot-odds.mp4",
+    "video": "h264",
+    "audio": "aac",
+    "sr": 48000,
+    "ch": 2,
+    "kbps": 197,
+    "duration": 12.9,
+    "lufs": -13.8,
+    "lra": 2.2,
+    "true_peak": -2.3
+  },
+  {
+    "project": "limp-trap",
+    "file": "out/limp-trap.mp4",
+    "video": "h264",
+    "audio": "aac",
+    "sr": 48000,
+    "ch": 2,
+    "kbps": 197,
+    "duration": 10.8,
+    "lufs": -14.7,
+    "lra": 1.0,
+    "true_peak": -2.4
+  },
+  {
+    "project": "october2026_session",
+    "file": "out/october2026_session.mp4",
+    "video": "h264",
+    "audio": "aac",
+    "sr": 48000,
+    "ch": 2,
+    "kbps": 196,
+    "duration": 52.0,
+    "lufs": -14.8,
+    "lra": 2.7,
+    "true_peak": -2.4
+  },
+  {
+    "project": "october-2026-session",
+    "file": "out/october-2026-session.mp4",
+    "video": "h264",
+    "audio": "aac",
+    "sr": 48000,
+    "ch": 2,
+    "kbps": 193,
+    "duration": 45.0,
+    "lufs": -14.7,
+    "lra": 2.5,
+    "true_peak": -2.3
+  },
+  {
+    "project": "hero",
+    "file": "out/same-hand-two-seats.mp4",
+    "video": "h264",
+    "audio": "aac",
+    "sr": 48000,
+    "ch": 2,
+    "kbps": 200,
+    "duration": 45.0,
+    "lufs": -13.9,
+    "lra": 2.9,
+    "true_peak": -0.6
+  }
+]
