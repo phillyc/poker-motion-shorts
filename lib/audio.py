@@ -16,6 +16,7 @@ normalisation and ffmpeg ``loudnorm`` stage in ``render.py``.
 import json
 import math
 import os
+import sys
 import wave
 
 import numpy as np
@@ -240,6 +241,11 @@ def build_bed_artlist(spec, mix, cfg):
     slug = cfg["music"]
     bed = SB.music(slug, cfg.get("root"))
     offset = float(cfg.get("music_offset", 0.0))
+    if not SB.fits_track(slug, offset, dur):
+        sys.stderr.write(
+            "WARNING: bed %s at offset %.2f s does not cover %.2f s of short "
+            "(track %.2f s) — it will be looped; move music_offset earlier.\n"
+            % (slug, offset, dur, SB.track_duration(slug) or float("nan")))
     bed = SB.clip(bed, None, offset, 0.0, 0.0)
     bed = SB.fit(bed, dur, loop=bool(cfg.get("music_loop", True)),
                  fade_out=float(cfg.get("music_fade_out", 0.45)))

@@ -164,7 +164,54 @@ def clip(x: np.ndarray, dur: float | None = None, offset: float = 0.0,
     return fade(y, fade_in, fade_out)
 
 
-def fit(x: np.ndarray, dur: float, loop: bool = True, fade_out: float = 0.35) -> np.ndarray:
+def track_duration(slug: str) -> float | None:
+    """Manifest duration of a music slug in seconds (None if unknown)."""
+    entry = _index().get(slug)
+    if not entry or entry.get("group") != "music":
+        return None
+    dur = float(entry.get("duration") or 0.0)
+    return dur or None
+
+
+def fits_track(slug: str, offset: float, dur: float, margin: float = 2.0) -> bool:
+    """True when ``offset + dur`` (plus ``margin``) stays inside the track.
+
+    A bed that has to be *looped* to cover the short is a latent defect: if the
+    source ends in a fade to silence (as licensed tracks usually do) the loop
+    point becomes digital silence followed by a hard, full-level re-entry.  Call
+    this before rendering and move the in-point earlier if it returns False.
+    """
+    total = track_duration(slug)
+    if total is None:
+        return True
+    return offset + dur + margin <= total + 1e-6
+
+
+def _tile_xfade(x: np.ndarray, n: int, xfade: float = 0.30) -> np.ndarray:
+    """Tile `x` to exactly `n` samples with an equal-power crossfade per seam.
+
+    A hard splice at the loop point clicks, and when the tail is fading it also
+    dips to silence and then re-enters at full level.  Overlapping each repeat by
+    `xfade` seconds and blending the two with cos/sin keeps the seam continuous
+    and the perceived level constant (equal power, 3 dB down at the midpoint).
+    """
+    L = max(0, min(int(round(xfade * SR)), len(x) // 2))
+    if L < 2:
+        reps = int(np.ceil(n / len(x)))
+        return np.tile(x, (reps, 1))[:n].copy()
+    t = np.arange(L, dtype=np.float32) / L
+    fo = np.cos(t * np.pi / 2)[:, None]          # equal-power fade-out
+    fi = np.sin(t * np.pi / 2)[:, None]          # equal-power fade-in
+    out = x.copy()
+    while len(out) < n + L:
+        head = x.copy()
+        head[:L] = head[:L] * fi + out[-L:] * fo
+        out = np.concatenate([out[:-L], head])
+    return out[:n]
+
+
+def fit(x: np.ndarray, dur: float, loop: bool = True, fade_out: float = 0.35,
+        xfade: float = 0.30) -> np.ndarray:
     """Trim or (optionally) loop a music bed to exactly `dur` seconds."""
     n = int(round(dur * SR))
     if len(x) >= n:
@@ -173,9 +220,8 @@ def fit(x: np.ndarray, dur: float, loop: bool = True, fade_out: float = 0.35) ->
         out = np.zeros((n, 2), dtype=np.float32)
         out[: len(x)] = fade(x, 0.02, fade_out)
         return out
-    reps = int(np.ceil(n / len(x)))
-    out = np.tile(x, (reps, 1))[:n]
-    return fade(out, 0.02, fade_out)
+    return fade(_tile_xfade(x, n, xfade), 0.02, fade_out)
+
 
 
 if __name__ == "__main__":

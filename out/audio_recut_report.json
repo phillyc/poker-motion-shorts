@@ -34,9 +34,9 @@
     "ch": 2,
     "kbps": 196,
     "duration": 52.0,
-    "lufs": -14.8,
-    "lra": 2.7,
-    "true_peak": -2.4
+    "lufs": -14.2,
+    "lra": 3.2,
+    "true_peak": -2.0
   },
   {
     "project": "october-2026-session",
@@ -60,8 +60,21 @@
     "ch": 2,
     "kbps": 200,
     "duration": 45.0,
-    "lufs": -13.9,
-    "lra": 2.9,
-    "true_peak": -0.6
+    "lufs": -14.4,
+    "lra": 2.5,
+    "true_peak": -3.1
+  },
+  {
+    "project": "october2026_monthly_results",
+    "file": "out/october2026_monthly_results.mp4",
+    "video": "h264",
+    "audio": "aac",
+    "sr": 48000,
+    "ch": 2,
+    "kbps": 193,
+    "duration": 51.0,
+    "lufs": -14.3,
+    "lra": 3.1,
+    "true_peak": -2.3
   }
 ]

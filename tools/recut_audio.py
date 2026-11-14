@@ -34,6 +34,8 @@ PROJECTS = {
              "hero": True, "limit": 0.60},
 }
 LOUDNORM = "loudnorm=I=-14:TP=-1.5:LRA=9"
+TP_CEILING = -1.5
+LIMIT_STEPS = (0.75, 0.71, 0.67, 0.63, 0.59, 0.55)   # alimiter ceilings, dBFS = 20log10
 
 
 def run(cmd, **kw):
@@ -106,6 +108,41 @@ def measure(path):
             "lufs": i, "lra": lra, "true_peak": peak}
 
 
+def check_beds(jobs, root):
+    """Fail before rendering if any project's in-point runs past the end of its bed.
+
+    A short longer than the bed left after `music_offset` makes `fit()` loop the
+    segment; if the track fades itself out (all of them do) the delivered audio
+    gets silence then a full-level re-entry at the seam.  Cheap to check, and the
+    fix is always just moving the in-point earlier.
+    """
+    import audio as A
+    import soundbank as SB
+
+    bad = []
+    for name in jobs:
+        job = jobs[name]
+        spec_path = job.get("spec")
+        if not spec_path:
+            continue
+        spec = json.load(open(spec_path))
+        spec.setdefault("fps", 30)
+        cfg = A.load_config(spec, root=root)
+        slug = cfg["music"]
+        off = float(cfg.get("music_offset", 0.0))
+        dur = float(spec.get("duration", 12.0))
+        total = SB.track_duration(slug)
+        ok = SB.fits_track(slug, off, dur)
+        print("bed check %-22s %-32s offset %6.2f + %5.2f = %7.2f / %7.2f s  %s"
+              % (name, slug, off, dur, off + dur, total or 0.0, "OK" if ok else "OVERRUN"),
+              flush=True)
+        if not ok:
+            bad.append("%s: %s offset %.2f + %.2f s > track %.2f s"
+                       % (name, slug, off, dur, total or 0.0))
+    if bad:
+        raise SystemExit("refusing to cut — bed overrun:\n  " + "\n  ".join(bad))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("projects", nargs="*", default=None)
@@ -115,6 +152,8 @@ def main():
     args = ap.parse_args()
 
     names = args.projects or list(PROJECTS)
+    jobs = {n: PROJECTS[n] for n in names}
+    check_beds(jobs, args.audio_root)
     rows = []
     for name in names:
         job = PROJECTS[name]
@@ -124,14 +163,37 @@ def main():
         wav = build_audio(job, args.audio_root, args.audio_engine) if not args.no_build else (
             "build/audio_vo.wav" if job.get("hero") else os.path.join("build", "audio", job["id"] + ".wav"))
         out = os.path.join("out", job["id"] + ".mp4")
-        remux(job["src"], wav, out, limit=job.get("limit", 0.75))
-        m = measure(out)
+        # The AAC encoder overshoots the post-limiter PCM peak by up to ~1.5 dB,
+        # and how far depends on the programme material.  Close the loop: keep
+        # lowering the limiter ceiling until the *decoded* true peak is legal.
+        start = job.get("limit", LIMIT_STEPS[0])
+        steps = [start] + [s for s in LIMIT_STEPS if s < start]
+        for i, limit in enumerate(steps):
+            remux(job["src"], wav, out, limit=limit)
+            m = measure(out)
+            if m["true_peak"] is not None and m["true_peak"] <= TP_CEILING:
+                break
+            if i + 1 < len(steps):
+                print("  %-22s TP %.1f dBTP over %.1f — retrying with ceiling %.2f"
+                      % (name, m["true_peak"], TP_CEILING, steps[i + 1]), flush=True)
         rows.append((name, out, m))
         print("%-22s -> %-34s %s" % (name, out, m), flush=True)
 
-    with open("out/audio_recut_report.json", "w") as fh:
-        json.dump([{"project": n, "file": o, **m} for n, o, m in rows], fh, indent=2)
-    print("\nwrote out/audio_recut_report.json")
+    report = os.path.join("out", "audio_recut_report.json")
+    existing = []
+    if os.path.exists(report):
+        try:
+            existing = json.load(open(report))
+        except ValueError:
+            existing = []
+    done = {n: {"project": n, "file": o, **m} for n, o, m in rows}
+    merged = [done.get(r.get("project"), r) for r in existing]
+    for n, row in done.items():                 # append rows we didn't know about
+        if not any(r.get("project") == n for r in existing):
+            merged.append(row)
+    with open(report, "w") as fh:
+        json.dump(merged, fh, indent=2)
+    print("\nwrote %s (%d rows; replaced %s)" % (report, len(merged), ", ".join(done) or "none"))
 
 
 if __name__ == "__main__":

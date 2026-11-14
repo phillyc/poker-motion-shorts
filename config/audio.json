@@ -51,7 +51,8 @@
     },
     "october2026_session": {
       "music": "danny-shields-guest-house",
-      "music_offset": 75.0,
+      "_music_offset_note": "60.86 s is a downbeat of the fitted 81.0 BPM bar grid (bar = 2.963 s) and puts the tune's drop (~74.1 s) 13.2 s into the 52 s cut. 75.0 s left only 48.55 s of bed, which made fit() loop into the track's 121-123 s self-fade -> silence + hard re-entry. offset + duration (112.86 s) must stay clear of the fade at 120.5 s; see lib/soundbank.py:fits_track().",
+      "music_offset": 60.86,
       "extra": [
         {
           "asset": "money-counter",
