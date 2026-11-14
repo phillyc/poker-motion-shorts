@@ -135,11 +135,13 @@ The hero needed a lower limiter ceiling (`0.60`) because its tanh bus overshoots
    tick sample and one riser to `s3://pokerfx-audio/sfx/` would retire the last
    synthetic voices — the swap is a one-line manifest entry plus a
    `config/audio.json` cue change.
-3. **NAS re-upload is not part of this commit.** The delivered tree at
-   `http://100.91.93.22/poker-motion-shorts/` still serves the old audio until
-   the recut MP4s are tar-streamed over (`docs/poc-report.md` §6). Left to the
-   playback-QA task `t_9a37cd51` so a listening check happens before the live
-   gallery changes.
+3. **NAS delivery is updated.** The live gallery at
+   `http://100.91.93.22/poker-motion-shorts/` now serves the re-scored MP4s.
+   Five files were tar-streamed over ssh (`docs/poc-report.md` §6) after copying
+   the previous versions to `out/.bak-20261114-preaurescore/` on the NAS. MD5 of
+   every deployed file matches the local render, all five answer HTTP 206 with
+   `video/mp4`, and a full download of `pot-odds.mp4` decodes audio cleanly.
+   `october2026_monthly_results.mp4` was deliberately left untouched (gap 1).
 4. Loudness on `pot-odds` (−13.8) and the hero (−13.9) sits ~0.1 LU off target —
    well inside platform tolerance, noted only so it is not mistaken for drift.
 
